@@ -1,0 +1,151 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+
+const HeroSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      title: 'Authorized APDCL Solar Vendor',
+      subtitle: 'Government Registered & Certified',
+      description: 'Your trusted partner for solar energy solutions in Assam',
+      cta: 'Learn More',
+      link: '/about'
+    },
+    {
+      title: 'Go Green with Solar Energy',
+      subtitle: 'Sustainable Power for a Better Tomorrow',
+      description: 'Reduce your carbon footprint and electricity bills',
+      cta: 'Our Services',
+      link: '/services'
+    },
+    {
+      title: 'Subsidy up to Rs 1,30,800',
+      subtitle: 'Government Solar Schemes Available',
+      description: 'Take advantage of APDCL and MNRE subsidies',
+      cta: 'Check Eligibility',
+      link: '/schemes'
+    },
+    {
+      title: 'Empowering Assam with Solar',
+      subtitle: '10+ Successful Installations',
+      description: 'Join satisfied customers across Assam',
+      cta: 'View Projects',
+      link: '/projects'
+    },
+    {
+      title: 'Install Solar & Save More',
+      subtitle: 'Professional Installation & Support',
+      description: '24×7 customer support and maintenance services',
+      cta: 'Get Free Quote',
+      link: '/contact'
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  return (
+    <div className="relative h-[600px] overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentSlide}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0"
+        >
+          <img 
+            className="w-full h-full object-cover" 
+            alt={`Solar panel installation - ${slides[currentSlide].title}`}
+           src="https://images.unsplash.com/photo-1643035660996-0834db96a85a" />
+          <div className="absolute inset-0 hero-overlay" />
+          
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="container mx-auto px-4 text-center text-white">
+              <motion.h1
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-4xl md:text-6xl font-bold mb-4"
+              >
+                {slides[currentSlide].title}
+              </motion.h1>
+              <motion.p
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-xl md:text-2xl mb-2 text-yellow-300"
+              >
+                {slides[currentSlide].subtitle}
+              </motion.p>
+              <motion.p
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
+              >
+                {slides[currentSlide].description}
+              </motion.p>
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <Button size="lg" className="solar-gradient text-white text-lg px-8" asChild>
+                  <Link to={slides[currentSlide].link}>{slides[currentSlide].cta}</Link>
+                </Button>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={32} />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition"
+        aria-label="Next slide"
+      >
+        <ChevronRight size={32} />
+      </button>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition ${
+              index === currentSlide ? 'bg-yellow-400 w-8' : 'bg-white/50'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default HeroSlider;

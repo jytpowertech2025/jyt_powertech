@@ -10,15 +10,17 @@ import SchemesPage from '@/pages/SchemesPage';
 import ProjectsPage from '@/pages/ProjectsPage';
 import FAQPage from '@/pages/FAQPage';
 import ContactPage from '@/pages/ContactPage';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import TermsAndConditions from '@/pages/TermsAndConditions';
 import { Toaster } from '@/components/ui/toaster';
-import ScrollToTop from '@/ScrollToTop'; // 👈 added import
+import ScrollToTop from '@/ScrollToTop'; // 👈 scrolls page to top on route change
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
-        <ScrollToTop /> {/* 👈 this makes every page load from top */}
+        <ScrollToTop /> {/* 👈 ensures every page loads from top */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -27,6 +29,8 @@ function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsAndConditions />} />
         </Routes>
       </main>
       <Footer />

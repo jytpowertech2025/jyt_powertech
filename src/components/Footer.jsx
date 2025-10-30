@@ -7,6 +7,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
@@ -36,6 +37,7 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
@@ -47,16 +49,18 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Our Services */}
           <div>
             <h3 className="font-semibold text-white mb-4">Our Services</h3>
             <ul className="space-y-2 text-sm">
-              <li className="hover:text-green-400 transition cursor-pointer">Rooftop Solar Installation</li>
-              <li className="hover:text-green-400 transition cursor-pointer">Maintenance & AMC</li>
-              <li className="hover:text-green-400 transition cursor-pointer">Subsidy Assistance</li>
-              <li className="hover:text-green-400 transition cursor-pointer">Supply of Electrical Items</li>
+              <li><Link to="/services" className="hover:text-green-400 transition">Rooftop Solar Installation</Link></li>
+              <li><Link to="/services" className="hover:text-green-400 transition">Maintenance & AMC</Link></li>
+              <li><Link to="/services" className="hover:text-green-400 transition">Subsidy Assistance</Link></li>
+              <li><Link to="/services" className="hover:text-green-400 transition">Supply of Electrical Items</Link></li>
             </ul>
           </div>
 
+          {/* Contact Info */}
           <div>
             <h3 className="font-semibold text-white mb-4">Contact Info</h3>
             <ul className="space-y-3 text-sm">
@@ -68,7 +72,7 @@ const Footer = () => {
                 <Phone size={16} className="text-green-400 flex-shrink-0" />
                 <a href="tel:+918135033690" className="hover:text-green-400 transition">+91 81350 33690</a>
               </li>
-               <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2">
                 <Phone size={16} className="text-green-400 flex-shrink-0" />
                 <a href="tel:+918876022766" className="hover:text-green-400 transition">+91 88760 22766</a>
               </li>
@@ -85,6 +89,7 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm">
           <p>&copy; 2025 JYT PowerTech. All Rights Reserved.</p>
           <div className="flex justify-center gap-4 mt-2">

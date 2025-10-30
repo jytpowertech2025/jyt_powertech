@@ -14,7 +14,7 @@ const HeroSlider = () => {
       description: 'Your trusted partner for solar energy solutions in Assam',
       cta: 'Learn More',
       link: '/about',
-      image: './assets/images/slide1.jpg'
+      image: './assets/images/slide1.jpg',
     },
     {
       title: 'Go Green with Solar Energy',
@@ -22,7 +22,7 @@ const HeroSlider = () => {
       description: 'Reduce your carbon footprint and electricity bills',
       cta: 'Our Services',
       link: '/services',
-      image: './assets/images/slide2.jpg'
+      image: './assets/images/slide2.jpg',
     },
     {
       title: 'Subsidy up to Rs 1,30,800',
@@ -30,7 +30,7 @@ const HeroSlider = () => {
       description: 'Take advantage of APDCL and MNRE subsidies',
       cta: 'Check Eligibility',
       link: '/schemes',
-      image: './assets/images/slide3.jpg'
+      image: './assets/images/slide3.jpg',
     },
     {
       title: 'Empowering Assam with Solar',
@@ -38,7 +38,7 @@ const HeroSlider = () => {
       description: 'Join satisfied customers across Assam',
       cta: 'View Projects',
       link: '/projects',
-      image: './assets/images/slide4.jpg'
+      image: './assets/images/slide4.jpg',
     },
     {
       title: 'Install Solar & Save More',
@@ -46,8 +46,8 @@ const HeroSlider = () => {
       description: '24×7 customer support and maintenance services',
       cta: 'Get Free Quote',
       link: '/contact',
-      image: './assets/images/slide5.jpg'
-    }
+      image: './assets/images/slide5.jpg',
+    },
   ];
 
   useEffect(() => {
@@ -61,25 +61,29 @@ const HeroSlider = () => {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-[600px] overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8 }}
           className="absolute inset-0"
         >
+          {/* ✅ Fullscreen Image */}
           <img
-            className="w-full h-full object-cover"
-            alt={`Solar panel installation - ${slides[currentSlide].title}`}
             src={slides[currentSlide].image}
+            alt={`Solar panel installation - ${slides[currentSlide].title}`}
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 hero-overlay" />
 
+          {/* ✅ Dark overlay for readability */}
+          <div className="absolute inset-0 bg-black/40" />
+
+          {/* ✅ Centered Text Content */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="container mx-auto px-4 text-center text-white">
+            <div className="text-center text-white px-6 max-w-3xl mx-auto">
               <motion.h1
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -88,6 +92,7 @@ const HeroSlider = () => {
               >
                 {slides[currentSlide].title}
               </motion.h1>
+
               <motion.p
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -96,14 +101,16 @@ const HeroSlider = () => {
               >
                 {slides[currentSlide].subtitle}
               </motion.p>
+
               <motion.p
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
+                className="text-lg md:text-xl mb-8"
               >
                 {slides[currentSlide].description}
               </motion.p>
+
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -135,7 +142,7 @@ const HeroSlider = () => {
         <ChevronRight size={32} />
       </button>
 
-      {/* Dots */}
+      {/* Slide Dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, index) => (
           <button

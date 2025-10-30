@@ -25,7 +25,7 @@ const AboutSection = () => {
             <img 
               className="rounded-lg shadow-xl w-full" 
               alt="JYT PowerTech team installing solar panels"
-             src="https://images.unsplash.com/photo-1660330589505-9a433a742a7b" />
+             src="./assets/images/AboutSection.jpg" />
           </motion.div>
 
           <motion.div

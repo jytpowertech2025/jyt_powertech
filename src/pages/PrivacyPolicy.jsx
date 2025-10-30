@@ -2,7 +2,7 @@ import React from "react";
 
 function PrivacyPolicy() {
   return (
-    <div className="container mx-auto px-4 py-10">
+    <div className="container mx-auto px-4 pt-28 pb-10"> {/* ✅ added top padding */}
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
       <p className="mb-4">
         At <strong>JYT PowerTech</strong>, we are committed to protecting your privacy. This

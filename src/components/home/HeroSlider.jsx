@@ -13,35 +13,40 @@ const HeroSlider = () => {
       subtitle: 'Government Registered & Certified',
       description: 'Your trusted partner for solar energy solutions in Assam',
       cta: 'Learn More',
-      link: '/about'
+      link: '/about',
+      image: './assets/images/slide1.jpg'
     },
     {
       title: 'Go Green with Solar Energy',
       subtitle: 'Sustainable Power for a Better Tomorrow',
       description: 'Reduce your carbon footprint and electricity bills',
       cta: 'Our Services',
-      link: '/services'
+      link: '/services',
+      image: './assets/images/slide2.jpg'
     },
     {
       title: 'Subsidy up to Rs 1,30,800',
       subtitle: 'Government Solar Schemes Available',
       description: 'Take advantage of APDCL and MNRE subsidies',
       cta: 'Check Eligibility',
-      link: '/schemes'
+      link: '/schemes',
+      image: './assets/images/slide3.jpg'
     },
     {
       title: 'Empowering Assam with Solar',
       subtitle: '10+ Successful Installations',
       description: 'Join satisfied customers across Assam',
       cta: 'View Projects',
-      link: '/projects'
+      link: '/projects',
+      image: './assets/images/slide4.jpg'
     },
     {
       title: 'Install Solar & Save More',
       subtitle: 'Professional Installation & Support',
       description: '24×7 customer support and maintenance services',
       cta: 'Get Free Quote',
-      link: '/contact'
+      link: '/contact',
+      image: './assets/images/slide5.jpg'
     }
   ];
 
@@ -52,13 +57,8 @@ const HeroSlider = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <div className="relative h-[600px] overflow-hidden">
@@ -71,12 +71,13 @@ const HeroSlider = () => {
           transition={{ duration: 0.5 }}
           className="absolute inset-0"
         >
-          <img 
-            className="w-full h-full object-cover" 
+          <img
+            className="w-full h-full object-cover"
             alt={`Solar panel installation - ${slides[currentSlide].title}`}
-           src="https://images.unsplash.com/photo-1643035660996-0834db96a85a" />
+            src={slides[currentSlide].image}
+          />
           <div className="absolute inset-0 hero-overlay" />
-          
+
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="container mx-auto px-4 text-center text-white">
               <motion.h1
@@ -117,6 +118,7 @@ const HeroSlider = () => {
         </motion.div>
       </AnimatePresence>
 
+      {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition"
@@ -124,6 +126,7 @@ const HeroSlider = () => {
       >
         <ChevronLeft size={32} />
       </button>
+
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition"
@@ -132,6 +135,7 @@ const HeroSlider = () => {
         <ChevronRight size={32} />
       </button>
 
+      {/* Dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, index) => (
           <button

@@ -64,7 +64,7 @@ const Header = () => {
             <img
               src="./assets/images/logo.png" // ✅ using public/images like in Footer
               alt="JYT PowerTech Logo"
-              className="w-12 h-12 rounded-full object-cover bg-white p-1"
+              className="w-14 h-14 rounded-full object-cover bg-white p-1"
             />
             <div>
               <div className="font-bold text-xl text-gray-800">JYT PowerTech</div>

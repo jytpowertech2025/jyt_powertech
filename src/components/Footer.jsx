@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
-// 👇 import your actual logo (adjust path if needed)
-import logo from '../assets/images/logo.png';
-
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -14,9 +11,9 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              {/* 👇 replaced JYT circle with actual logo */}
+              {/* ✅ Using direct image path (no import) */}
               <img
-                src={logo}
+                src="/assets/images/logo.png"
                 alt="JYT PowerTech Logo"
                 className="w-14 h-14 object-contain rounded-full bg-white p-1"
               />
@@ -29,16 +26,36 @@ const Footer = () => {
               Authorized APDCL Solar Vendor (Code: 106220) providing sustainable energy solutions across Assam.
             </p>
             <div className="flex gap-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition"
+              >
                 <Facebook size={16} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition"
+              >
                 <Instagram size={16} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-700 transition"
+              >
                 <Linkedin size={16} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition">
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition"
+              >
                 <Youtube size={16} />
               </a>
             </div>
@@ -77,20 +94,28 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-green-400 flex-shrink-0" />
-                <a href="tel:+918135033690" className="hover:text-green-400 transition">+91 81350 33690</a>
+                <a href="tel:+918135033690" className="hover:text-green-400 transition">
+                  +91 81350 33690
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-green-400 flex-shrink-0" />
-                <a href="tel:+918876022766" className="hover:text-green-400 transition">+91 88760 22766</a>
+                <a href="tel:+918876022766" className="hover:text-green-400 transition">
+                  +91 88760 22766
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-green-400 flex-shrink-0" />
-                <a href="mailto:jytpowertech@gmail.com" className="hover:text-green-400 transition">jytpowertech@gmail.com</a>
+                <a href="mailto:jytpowertech@gmail.com" className="hover:text-green-400 transition">
+                  jytpowertech@gmail.com
+                </a>
               </li>
             </ul>
             <p className="text-xs mt-4">
-              <span className="font-semibold text-white">Working Hours:</span><br />
-              Mon - Sat: 9:00 AM - 6:00 PM<br />
+              <span className="font-semibold text-white">Working Hours:</span>
+              <br />
+              Mon - Sat: 9:00 AM - 6:00 PM
+              <br />
               Sunday: Closed
             </p>
           </div>
@@ -100,9 +125,13 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm">
           <p>&copy; 2025 JYT PowerTech. All Rights Reserved.</p>
           <div className="flex justify-center gap-4 mt-2">
-            <Link to="/privacy" className="hover:text-green-400 transition">Privacy Policy</Link>
+            <Link to="/privacy" className="hover:text-green-400 transition">
+              Privacy Policy
+            </Link>
             <span>|</span>
-            <Link to="/terms" className="hover:text-green-400 transition">Terms & Conditions</Link>
+            <Link to="/terms" className="hover:text-green-400 transition">
+              Terms & Conditions
+            </Link>
           </div>
         </div>
       </div>

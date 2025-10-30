@@ -2,17 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
+// 👇 import your actual logo (adjust path if needed)
+import logo from '@/assets/images/logo.png';
+
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                JYT
-              </div>
+              {/* 👇 replaced JYT circle with actual logo */}
+              <img
+                src={logo}
+                alt="JYT PowerTech Logo"
+                className="w-14 h-14 object-contain rounded-full bg-white p-1"
+              />
               <div>
                 <div className="font-bold text-xl text-white">JYT PowerTech</div>
                 <div className="text-xs text-green-400">Solar Energy Solutions</div>

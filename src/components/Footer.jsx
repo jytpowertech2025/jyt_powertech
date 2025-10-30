@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
 // 👇 import your actual logo (adjust path if needed)
-import logo from 'import logo from '../assets/images/logo.png';
+import logo from '../assets/images/logo.png';
 
 const Footer = () => {
   return (

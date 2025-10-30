@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MapPin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '/assets/images/logo.png'; // ✅ added your logo import
+import logo from '../assets/images/logo.png'; // ✅ added your logo import
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);

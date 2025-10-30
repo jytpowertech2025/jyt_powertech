@@ -11,12 +11,14 @@ import ProjectsPage from '@/pages/ProjectsPage';
 import FAQPage from '@/pages/FAQPage';
 import ContactPage from '@/pages/ContactPage';
 import { Toaster } from '@/components/ui/toaster';
+import ScrollToTop from '@/ScrollToTop'; // 👈 added import
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
+        <ScrollToTop /> {/* 👈 this makes every page load from top */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />

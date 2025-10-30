@@ -1,76 +1,74 @@
-import React from 'react';
+import React from "react";
 
-export default function PrivacyPolicy() {
+function PrivacyPolicy() {
   return (
     <div className="container mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-
-      <p className="mb-4">Effective Date: January 1, 2025</p>
-
       <p className="mb-4">
-        JYT PowerTech (“we”, “our”, or “us”) is committed to protecting your privacy.
-        This Privacy Policy explains how we collect, use, and safeguard your personal
-        information when you visit our website or engage with our solar installation
-        and related services.
+        At <strong>JYT PowerTech</strong>, we are committed to protecting your privacy. This
+        Privacy Policy explains how we collect, use, and protect your personal
+        information when you visit our website or engage with our solar panel
+        installation services.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-3">1. Information We Collect</h2>
-      <ul className="list-disc pl-6 space-y-2 mb-4">
-        <li>Personal details such as your name, phone number, and email address when you contact us or fill out an inquiry form.</li>
-        <li>Location details or site information when you request a solar consultation or installation.</li>
-        <li>Technical data such as IP address, browser type, and usage patterns collected automatically through cookies or analytics tools.</li>
-      </ul>
+      <p className="mb-4">
+        We may collect personal information such as your name, contact details,
+        email address, and project requirements when you contact us or submit
+        an inquiry form. We may also collect non-personal information such as
+        browser type, device, and usage data for analytics.
+      </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-3">2. How We Use Your Information</h2>
-      <ul className="list-disc pl-6 space-y-2 mb-4">
-        <li>To respond to your inquiries or service requests.</li>
-        <li>To provide quotations, project updates, or maintenance reminders.</li>
-        <li>To improve our website’s content and functionality.</li>
-        <li>To comply with legal, regulatory, or contractual obligations.</li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold mt-6 mb-3">3. Sharing of Information</h2>
       <p className="mb-4">
-        We do not sell or rent your personal data. Your information may be shared only with:
+        We use your information to respond to inquiries, provide quotations,
+        deliver installation and maintenance services, and send updates or
+        promotional offers (if opted-in). We do not sell or share your personal
+        information with third parties except when required to deliver our
+        services or comply with the law.
       </p>
-      <ul className="list-disc pl-6 space-y-2 mb-4">
-        <li>Authorized employees or partners for providing installation and maintenance services.</li>
-        <li>Government or regulatory bodies such as APDCL or MNRE, when required for subsidy or registration purposes.</li>
-        <li>Third-party vendors (e.g., courier or finance partners) who assist in our business operations, under strict confidentiality.</li>
-      </ul>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-3">4. Data Security</h2>
+      <h2 className="text-2xl font-semibold mt-6 mb-3">3. Data Security</h2>
       <p className="mb-4">
-        We implement appropriate technical and organizational measures to safeguard
-        your information against loss, theft, misuse, or unauthorized access.
+        We implement appropriate technical and organizational measures to
+        protect your personal data from unauthorized access, loss, or misuse.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-6 mb-3">4. Cookies</h2>
+      <p className="mb-4">
+        Our website may use cookies to enhance your browsing experience and
+        analyze traffic. You can choose to disable cookies through your browser
+        settings.
       </p>
 
       <h2 className="text-2xl font-semibold mt-6 mb-3">5. Your Rights</h2>
-      <ul className="list-disc pl-6 space-y-2 mb-4">
-        <li>Access and review your data.</li>
-        <li>Request correction or deletion of inaccurate information.</li>
-        <li>Withdraw consent for future communications.</li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold mt-6 mb-3">6. Cookies</h2>
       <p className="mb-4">
-        Our website may use cookies to enhance user experience and analyze traffic.
-        You can disable cookies through your browser settings at any time.
+        You have the right to access, update, or request deletion of your
+        personal data by contacting us at{" "}
+        <a
+          href="mailto:info@jytsolar.com"
+          className="text-blue-600 underline"
+        >
+          info@jytsolar.com
+        </a>
+        .
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-3">7. Updates to This Policy</h2>
+      <h2 className="text-2xl font-semibold mt-6 mb-3">6. Policy Updates</h2>
       <p className="mb-4">
-        JYT PowerTech reserves the right to update this Privacy Policy from time to time.
-        The latest version will always be available on our website.
+        We may update this Privacy Policy periodically. The latest version will
+        always be available on this page.
       </p>
 
-      <h2 className="text-2xl font-semibold mt-6 mb-3">8. Contact Us</h2>
-      <p>
-        For any questions regarding this Privacy Policy, please contact us at: <br />
-        <strong>Email:</strong> jytpowertech@gmail.com <br />
-        <strong>Phone:</strong> +91 81350 33690 / +91 88760 22766 <br />
-        <strong>Address:</strong> Six Mile, VIP Road, Kamrup (M), Guwahati – 22, Assam
+      <p className="mt-8">
+        <strong>JYT PowerTech</strong>  
+        <br />
+        A Govt-Registered APDCL Solar Vendor  
+        <br />
+        Assam, India
       </p>
     </div>
   );
 }
+
+export default PrivacyPolicy;

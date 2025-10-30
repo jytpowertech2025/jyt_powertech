@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MapPin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import logo from '../assets/images/logo.png'; // ✅ added your logo import
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,9 +10,7 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -34,6 +31,7 @@ const Header = () => {
         isScrolled ? 'bg-white shadow-lg' : 'bg-white/95'
       }`}
     >
+      {/* Top Info Bar */}
       <div className="bg-gradient-to-r from-green-700 to-green-600 text-white py-2 px-4">
         <div className="container mx-auto flex flex-wrap justify-between items-center text-sm">
           <div className="flex items-center gap-4">
@@ -58,22 +56,23 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Main Navbar */}
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
+          {/* Logo and Name */}
           <Link to="/" className="flex items-center gap-3">
-            {/* ✅ Replaced JYT circle with your actual logo image */}
             <img
-              src={logo}
+              src="/assets/images/logo.png" // ✅ using public/images like in Footer
               alt="JYT PowerTech Logo"
-              className="w-12 h-12 rounded-full object-cover"
+              className="w-12 h-12 rounded-full object-cover bg-white p-1"
             />
-
             <div>
               <div className="font-bold text-xl text-gray-800">JYT PowerTech</div>
               <div className="text-xs text-green-600">Solar Energy Solutions</div>
             </div>
           </Link>
 
+          {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
@@ -90,6 +89,7 @@ const Header = () => {
             ))}
           </div>
 
+          {/* Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <Button variant="outline" size="sm" asChild>
               <a
@@ -106,6 +106,7 @@ const Header = () => {
             </Button>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button
             className="lg:hidden text-gray-700"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -114,6 +115,7 @@ const Header = () => {
           </button>
         </div>
 
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div

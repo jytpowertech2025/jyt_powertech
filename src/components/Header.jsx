@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MapPin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from '/assets/images/logo.png'; // ✅ added your logo import
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,15 +29,25 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/95'}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-lg' : 'bg-white/95'
+      }`}
+    >
       <div className="bg-gradient-to-r from-green-700 to-green-600 text-white py-2 px-4">
         <div className="container mx-auto flex flex-wrap justify-between items-center text-sm">
           <div className="flex items-center gap-4">
-            <a href="tel:+918135033690" className="flex items-center gap-1 hover:text-yellow-300 transition">
+            <a
+              href="tel:+918135033690"
+              className="flex items-center gap-1 hover:text-yellow-300 transition"
+            >
               <Phone size={14} />
               <span className="hidden sm:inline">+91 81350 33690</span>
             </a>
-            <a href="mailto:jytpowertech@gmail.com" className="flex items-center gap-1 hover:text-yellow-300 transition">
+            <a
+              href="mailto:jytpowertech@gmail.com"
+              className="flex items-center gap-1 hover:text-yellow-300 transition"
+            >
               <Mail size={14} />
               <span className="hidden md:inline">jytpowertech@gmail.com</span>
             </a>
@@ -50,9 +61,13 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-              JYT
-            </div>
+            {/* ✅ Replaced JYT circle with your actual logo image */}
+            <img
+              src={logo}
+              alt="JYT PowerTech Logo"
+              className="w-12 h-12 rounded-full object-cover"
+            />
+
             <div>
               <div className="font-bold text-xl text-gray-800">JYT PowerTech</div>
               <div className="text-xs text-green-600">Solar Energy Solutions</div>
@@ -65,7 +80,9 @@ const Header = () => {
                 key={link.path}
                 to={link.path}
                 className={`text-sm font-medium transition-colors hover:text-green-600 ${
-                  location.pathname === link.path ? 'text-green-600' : 'text-gray-700'
+                  location.pathname === link.path
+                    ? 'text-green-600'
+                    : 'text-gray-700'
                 }`}
               >
                 {link.name}
@@ -75,7 +92,11 @@ const Header = () => {
 
           <div className="hidden lg:flex items-center gap-3">
             <Button variant="outline" size="sm" asChild>
-              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <MapPin size={16} className="mr-1" />
                 Locate Us
               </a>
@@ -107,7 +128,9 @@ const Header = () => {
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block py-2 text-sm font-medium transition-colors hover:text-green-600 ${
-                    location.pathname === link.path ? 'text-green-600' : 'text-gray-700'
+                    location.pathname === link.path
+                      ? 'text-green-600'
+                      : 'text-gray-700'
                   }`}
                 >
                   {link.name}
@@ -115,7 +138,11 @@ const Header = () => {
               ))}
               <div className="flex flex-col gap-2 mt-4">
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <MapPin size={16} className="mr-1" />
                     Locate Us
                   </a>

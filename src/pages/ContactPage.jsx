@@ -9,9 +9,30 @@ const ContactPage = () => {
     name: '',
     phone: '',
     email: '',
-    location: '',
+    district: '',
     message: ''
   });
+  const whatsappNumbers = [
+    '918135033690', // Group 1
+    '918876022766', // Group 2
+    '919864810534'  // Group 3
+  ];
+
+  const districts = [
+    "Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo",
+    "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Dima Hasao",
+    "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup",
+    "Kamrup Metropolitan", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur",
+    "Majuli", "Morigaon", "Nagaon", "Nalbari", "Sivasagar", "Sonitpur",
+    "South Salmara-Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"
+  ];
+
+  const districtsPerGroup = Math.ceil(districts.length / 3);
+  const groups = [
+    districts.slice(0, districtsPerGroup),
+    districts.slice(districtsPerGroup, districtsPerGroup * 2),
+    districts.slice(districtsPerGroup * 2)
+  ];
 
   const handleChange = (e) => {
     setFormData({
@@ -22,18 +43,23 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const { name, phone, email, location, message } = formData;
-    const whatsappMessage = `Hello, I'd like to make an inquiry.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Location:* ${location}\n*Message:* ${message}`;
-    const whatsappUrl = `https://wa.me/918135033690?text=${encodeURIComponent(whatsappMessage)}`;
-    
+
+    const { name, phone, email, district, message } = formData;
+
+    let selectedNumber = whatsappNumbers[0];
+    if (groups[1].includes(district)) selectedNumber = whatsappNumbers[1];
+    else if (groups[2].includes(district)) selectedNumber = whatsappNumbers[2];
+
+    const whatsappMessage = `Hello, I'd like to make an inquiry.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*District:* ${district}\n*Message:* ${message}`;
+    const whatsappUrl = `https://wa.me/${selectedNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
     window.open(whatsappUrl, '_blank');
 
     setFormData({
       name: '',
       phone: '',
       email: '',
-      location: '',
+      district: '',
       message: ''
     });
   };
@@ -42,7 +68,10 @@ const ContactPage = () => {
     <>
       <Helmet>
         <title>Contact Us - Get Free Solar Consultation | JYT PowerTech</title>
-        <meta name="description" content="Contact JYT PowerTech for free solar consultation, site visit, and quotes. Call us, WhatsApp, or fill the contact form. Located in Guwahati, Assam." />
+        <meta
+          name="description"
+          content="Contact JYT PowerTech for free solar consultation, site visit, and quotes. Call us, WhatsApp, or fill the contact form. Located in Guwahati, Assam."
+        />
       </Helmet>
 
       <div className="pt-32 pb-20">
@@ -60,6 +89,7 @@ const ContactPage = () => {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            {/* FORM SECTION */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -107,16 +137,21 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Location *</label>
-                  <input
-                    type="text"
-                    name="location"
-                    value={formData.location}
+                  <label className="block text-gray-700 font-semibold mb-2">District *</label>
+                  <select
+                    name="district"
+                    value={formData.district}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-600 focus:outline-none"
-                    placeholder="Enter your location"
-                  />
+                  >
+                    <option value="">Select your district</option>
+                    {districts.map((dist) => (
+                      <option key={dist} value={dist}>
+                        {dist}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>
@@ -131,20 +166,24 @@ const ContactPage = () => {
                   ></textarea>
                 </div>
 
-                <Button type="submit" size="lg" className="w-full green-gradient text-white text-lg">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full green-gradient text-white text-lg"
+                >
                   <Send className="mr-2" size={20} />
                   Send via WhatsApp
                 </Button>
               </form>
             </motion.div>
 
+            {/* CONTACT DETAILS SECTION */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
               <h2 className="text-3xl font-bold mb-6 text-gray-800">Contact Information</h2>
-              
               <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-4 bg-white p-6 rounded-lg shadow-lg">
                   <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
